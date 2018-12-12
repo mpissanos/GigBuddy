@@ -1,6 +1,5 @@
 class ItemsController < ApplicationController
 
-  # GET: /items
   get "/items" do
     if !logged_in?
       redirect "/login"
@@ -39,7 +38,7 @@ class ItemsController < ApplicationController
     end
   end
 
-  # GET: /items/5/edit
+ 
   get "/items/:id/edit" do
     if !logged_in?
       redirect "/login"
@@ -49,7 +48,7 @@ class ItemsController < ApplicationController
     end
   end
 
-  # PATCH: /items/5
+  
   patch "/items/:id" do
     @item = Item.find_by_id(params[:id])
     if !logged_in?
@@ -67,7 +66,7 @@ class ItemsController < ApplicationController
     end
   end
 
-  # DELETE: /items/5/delete
+  
   delete "/items/:id/delete" do
     if !logged_in?
       redirect "/login"

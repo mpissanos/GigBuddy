@@ -33,7 +33,7 @@ class UsersController < ApplicationController
         flash[:message] = "You are not currently a user, please sign up first!"
         redirect '/signup'
     end
-end
+  end
 
   get '/logout' do
     session.clear 
