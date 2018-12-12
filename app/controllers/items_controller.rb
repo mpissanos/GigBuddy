@@ -62,6 +62,7 @@ class ItemsController < ApplicationController
         @item.user = current_user
         @item.update(item_name: params[:item_name], brand: params[:brand])
         @item.save
+        flash[:success] = "#{params[:item_name]} was successfully updated"
         redirect "items/#{@item.id}"
       end
     end
@@ -74,6 +75,7 @@ class ItemsController < ApplicationController
     else
       @item = Item.find(params[:id])
       @item.delete
+      flash[:success] = "Item deleted!"
       redirect '/items'
     end
   end
