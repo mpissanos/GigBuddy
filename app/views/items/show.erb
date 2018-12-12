@@ -1,0 +1,14 @@
+ <p><%= @item.item_name %></p>
+ <p><%= @item.brand %></p>
+  
+
+
+<form method="post" action="/items/<%=@item.id%>/delete">
+  <input id="hidden" type="hidden" name="_method" value="DELETE">
+  <input type="submit" value="Delete Item">
+</form>
+
+
+<a href="/items/<%=@item.id%>/edit">Edit This Item </a>
+<a href="/items">My Items</a>
+

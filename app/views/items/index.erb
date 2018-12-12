@@ -1,0 +1,17 @@
+
+
+<h2>Welcome, <%= current_user.username.capitalize %>.</h2>
+
+  <h2>Your Current Items</h2>
+    <% @items.each do |i| %>
+      <ul>
+        <li><%= i.item_name %></li>
+        <li><%= i.brand %></li>
+      </ul>
+    <% end %>
+
+<a href="/items/new">Add an Item</a>
+<a href="/logout">Logout</a>
+
+
+
