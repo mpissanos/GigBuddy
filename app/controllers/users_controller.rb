@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   post "/signup" do
     @user = User.new(params)
       if @user.save
-        session[:user_id] = @user.id 
+        session[:id] = @user.id 
         redirect '/items'
       else
         flash[:message] = "Missing Fields"
