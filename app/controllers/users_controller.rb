@@ -12,7 +12,7 @@ class UsersController < ApplicationController
         session[:id] = @user.id 
         redirect '/items'
       else
-        flash[:message] = "Missing Fields"
+        flash[:message] = "Missing Fields or not a nuique Username! Try again."
         redirect '/signup'
       end
   end

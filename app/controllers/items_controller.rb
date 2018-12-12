@@ -25,6 +25,7 @@ class ItemsController < ApplicationController
     else
       @item = Item.create(item_name: params[:item_name],brand: params[:brand], user_id: current_user.id)
       @item.save
+      flash[:message] = "New Item Added!"
       redirect "/items/#{@item.id}"
     end
   end

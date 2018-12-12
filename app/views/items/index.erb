@@ -2,10 +2,11 @@
 
 <h2>Welcome, <%= current_user.username.capitalize %>.</h2>
 
-  <h2>Your Current Items</h2>
+  <h3>Your Current Items</h3>
     <% @items.each do |i| %>
       <ul>
         <li><strong><%= i.brand %></strong> - <%= i.item_name %></li>
+        <a class="btn btn-primary" href="/items/<%=i.id%>/edit" role="button">Edit</a>
       </ul>
     <% end %>
 
