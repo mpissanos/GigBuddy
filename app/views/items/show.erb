@@ -1,4 +1,4 @@
-<strong><%= @item.item_name %></strong> - <%= @item.brand %>
+<strong><%= @item.brand %></strong> - <%= @item.item_name %>
 
 <form method="post" action="/items/<%=@item.id%>/delete">
   <input id="hidden" type="hidden" name="_method" value="DELETE">

@@ -20,7 +20,7 @@ class ItemsController < ApplicationController
   
   post "/items" do
     if params.values.any? {|value| value == ""}
-    flash[:message] = "Please fill out all fields"
+      flash[:message] = "Please fill out all fields"
       erb :'items/new'
     else
       @item = Item.create(item_name: params[:item_name],brand: params[:brand], user_id: current_user.id)
@@ -45,7 +45,12 @@ class ItemsController < ApplicationController
       redirect "/login"
     else
       @item = Item.find_by_id(params[:id])
-      erb :"/items/edit"
+      if current_user == @item.user
+        
+        erb :"/items/edit"
+      else
+        redirect "/items"
+      end
     end
   end
 
@@ -74,9 +79,14 @@ class ItemsController < ApplicationController
       redirect "/login"
     else
       @item = Item.find(params[:id])
-      @item.delete
-      flash[:success] = "Item deleted!"
-      redirect '/items'
+      if  current_user == @item.user
+        @item.delete
+        flash[:success] = "Item deleted!"
+        redirect '/items'
+      else
+        flash[:message] = "You do not have access"
+        redirect '/items'
+      end
     end
   end
 
